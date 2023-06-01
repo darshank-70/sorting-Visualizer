@@ -1,0 +1,15 @@
+#container{
+    display: flex;
+    align-items: flex-end;
+    height: 200px;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.bar{
+    margin: 10px;
+    background-color: blueviolet;
+    width: 10px;
+}
