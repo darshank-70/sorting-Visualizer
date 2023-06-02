@@ -1,7 +1,8 @@
-const n=10;
+var n=10;
+var speed=0.2;
 const array=[];
 function init(){
-    for(let i=0;i<10;i++){
+    for(let i=0;i<n;i++){
         array[i]=Math.random();
     }
     console.clear();
@@ -42,9 +43,9 @@ function animate(moves){
     showBars(currentMove);
     setTimeout(function(){
         animate(moves);
-    },200);
+    },speed);
 }
-
+/*
 function bubbleSort(array){
     //sorting Algorithm
     const moves=[];
@@ -61,4 +62,43 @@ do{
     }
 }while(swapped);
 return moves;
+}
+*/
+function bubbleSort(arr) {
+    const moves=[];
+    for (var i = 0; i < arr.length; i++) {
+    
+        // Last i elements are already in place  
+        for (var j = 0; j < (arr.length - i - 1); j++) {
+  
+            // Checking if the item at present iteration 
+            // is greater than the next iteration
+            if (arr[j] > arr[j + 1]) {
+  
+                // If the condition is true
+                // then swap them
+                var temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+                moves.push({indices:[j,j+1],type:"swap"});
+            }
+            else{
+                moves.push({indices:[j,j+1],type:"compare"});
+            }
+        }
+    }
+  
+    // Print the sorted array
+   // console.log(arr);
+   
+return moves;
+}
+//change input clicked
+function changeConfig(view){
+    cardInput.style.visibility=view;
+}   
+function submitConfig(){
+    n=inputArray.value;
+    speed=inputSelect.value;
+    cardInput.style.visibility="hidden";
 }

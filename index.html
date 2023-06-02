@@ -8,14 +8,99 @@
     <link href="style.css" rel="stylesheet"/>
 </head>
 <body>
-    <h2> Sorting Visualizer</h2>
+   <div class="header">
+        <h2> Sorting Visualizer</h2>
+        <img id="logo" src="images/bar-chart.png" width="30" height="30">
+        <a id="algolink" href="#algorithmSection">Algorithm</a>
+        <a id="change" onclick="changeConfig('visible')">Change inputs</a>
+</div> 
     <div id="container">
+    </div>
+    <div class="buttons">
+        <button id="initButton" onclick="init()">Init</button>
+        <button id="playButton" onclick="play()">Start </button>
+    </div>
+    <div class="algo" id="algoSection">
 
     </div>
-    <hr>
-    <div class="buttons">
-        <button onclick="init()">Init</button>
-        <button onclick="play()">Play</button>
+    <div class="card" id="cardInput">
+      <img src="images/reject.png" width="30" height="30" id="closeicon" onclick="changeConfig('hidden')"/>
+        <div class="inputs">
+          <label id="ilabel">Array size:<input type="number" max="25" value="10" min="10" id="inputArray"/></label>
+          <label id="ilabel">Speed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <select id="inputSelect">
+            <option value="100">0.1s</option>
+            <option value="200" selected>0.2s</option>
+            <option value="500">0.5s</option>
+            <option value="1000">1s</option>
+          </select>  </label>
+          <button onclick="submitConfig()">change</button>
+
+        </div>
+    </div>
+    <div class="algorithmContainer" id="algorithmSection">
+      <h1>BUBBLE SORT</h1>
+      <p class="para">
+        Bubble sort, sometimes referred to as sinking sort, is a simple 
+        sorting algorithm that repeatedly steps through the input list element by element,
+         comparing the current element with the one after it, swapping their values if 
+         needed.These passes through the list are repeated until no swaps had to be
+          performed during a pass, meaning that the list has become fully sorted.
+      </p>
+      <div class="timeComplexity">
+       <h3>Time Complexity Analysis</h3> 
+        <p> 
+         <div class="def">Best Case:</div>
+         <p class="para">
+          The best case occurs when the array is already sorted.
+          So the number of comparisons required is N-1 and the number of swaps required = 0.
+          Hence the best case complexity is O(N).
+          </p>
+          <div class="def">Worst Case:</div>
+          <p class="para">
+          The worst-case condition for bubble sort occurs when elements 
+          of the array are arranged in decreasing order.In the worst case, the total number
+           of iterations or passes required to sort a given array is (N-1).
+           where N is the number of elements present in the array.
+          </p>
+          <div class="def">Average Case:</div>
+          <p class="para">
+           The number of comparisons is constant in Bubble Sort. 
+           So in average case, there are O(N2) comparisons. This is because irrespective 
+           of the arrangement of elements,the number of comparisons C(N) is same.
+           </p>
+           <h3>Space Complexity Analysis</h3>
+           <div class="def">Auxiliary Space:</div> 
+           <p class="para">
+            O(1) as no additional space is used.
+           </p>
+        </p>
+      </div>
+      
+      <div class="code">
+        <p id="prefunc">Bubble sort function
+         <pre> function bubbleSort(arr) {
+
+            for (var i = 0; i &lt; arr.length; i++) {
+            
+                // Last i elements are already in place  
+                for (var j = 0; j &lt; (arr.length - i - 1); j++) {
+          
+                    // Checking if the item at present iteration 
+                    // is greater than the next iteration
+                    if (arr[j] &gt; arr[j + 1]) {
+          
+                        // If the condition is true then swap them
+                        var temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+        }
+      </pre>
+        </p>
+      </div>
     </div>
     <script src="script.js" ></script>
 </body>
