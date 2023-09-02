@@ -250,4 +250,8 @@ pre {
     position: absolute;
     left: 166px;
   }
+  h1 {
+    font-size: 12px;
+    color: #fff;
+  }
 }
